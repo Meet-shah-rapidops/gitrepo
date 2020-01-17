@@ -1,0 +1,159 @@
+Shell Scripting
+
+
+Prac-1
+
+	for item in test/*
+	    do
+		if [ -f "$item" ]
+		then 
+		    mv $item $item.new
+		fi
+	done
+
+
+
+Prac-2
+
+Prac-3
+
+	echo "Enter First Number"
+	read num1
+	echo "Enter Second Number"
+	read num2
+	echo "===========Arithmatic Operations============="
+	echo "Addition is $(($num1+$num2))"
+	echo "Substraction is $(($num1-$num2))"
+	echo "Multiplication is $(($num1*$num2))" 
+	echo "Division is $(($num1/$num2))"
+	echo "Modulus is $(($num1%$num2))"
+	echo "===========Max or min================="
+	if (( $num1 > $num2))
+	    then echo "$(($num1)) is greater"
+	else 
+	    echo "$(($num2)) is greater"
+	fi
+
+	if (( $num1 < $num2))
+	    then echo "$(($num1)) is smaller"
+	else 
+	    echo "$(($num2)) is smaller"
+	fi
+	echo "===========Negative or Positive================="
+	if (( $num1 >= 0))
+	    then echo "$(($num1)) is positive"
+	else 
+	    echo "$(($num1)) is negative"
+	fi
+
+	if (( $num2 >= 0))
+	    then echo "$(($num2)) is positive"
+	else 
+	    echo "$(($num2)) is negative"
+	fi
+
+
+
+Prac-4
+
+	echo -e "Enter any Number greater than 0 \c"
+	read num1
+
+	if [[ $num1 > 1 ]]; then
+	    echo "=======using for loop========="
+
+	    for ((i = 1; i <= $num1; i++)); do
+		echo "$i"
+	    done
+
+	    echo "=======using while loop========="
+	    temp1=1
+	    while [ $temp1 -le $num1 ]; do
+		echo "$temp1"
+		((temp1++))
+	    done
+
+	    echo "=======using untile loop========="
+
+	    temp2=1
+	    until [ ! $temp2 -le $num1 ]; do
+		echo "$temp2"
+		((temp2++))
+	    done
+	else
+	    echo "You Entered number less than 1"
+	fi
+
+Prac-5
+
+	echo `ls -t1 | head -1`
+
+Prac-6
+
+	check() {
+	    dir=$1
+	    # echo "$d"
+	    if [ -d "$dir" ]; then
+		for d1 in $dir/*; do
+		    check $d1
+		done
+	    else
+		if [ "${dir##*.}" = "txt" ]; then
+		    echo $dir `grep -c 'linux' "$dir"`
+		fi
+	    fi
+	}
+
+	for file in ../*; do
+	    check $file
+	done
+
+Prac-7
+
+	echo -e "Enter Source \c"
+	read s
+
+	echo -e "Enter Destination \c"
+	read d
+
+	cp -r "$s" "$d"
+
+prac-8
+
+
+	echo -e "Enter file name : \c"
+	read path
+
+	# (i)
+
+	echo "========== first 10 Line ================"
+	head -10 "$path"
+
+	echo "=========== last 10 Line ================="
+	tail -10 "$path"
+
+	# (ii)
+	echo
+	echo "========== Display line no. 3 to 8 ========"
+	tail +3 "$path" | head -6
+
+
+	# (iii)
+	echo
+	echo "=== Display 7 lines and start from second last line in reverse manner =="
+	head -n -1 "$path" | tail -7
+
+Prac-9
+
+Prac-10
+
+
+	for file in ../*
+	do
+	    if [ -f "$file" ]
+		then
+		    grep -l 'abc' "$file"
+		else
+		    continue
+	    fi
+	done
