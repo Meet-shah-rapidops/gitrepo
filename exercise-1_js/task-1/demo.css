@@ -1,0 +1,25 @@
+body {
+}
+.btn {
+	margin-right: 5px;
+}
+.container {
+	margin-top: 30px;
+}
+.top {
+	margin-top: 90px;
+}
+
+@media (max-width: 335px) {
+	.container h3 {
+		font-size: 25px;
+	}
+}
+@media (min-width: 770px) {
+	.container h3 {
+		font-size: 50px;
+	}
+	.btn {
+		font-size: 30px;
+	}
+}

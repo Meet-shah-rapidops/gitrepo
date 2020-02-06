@@ -1,0 +1,9 @@
+.container {
+	padding-top: 5%;
+}
+.container .row .col table {
+	padding: 2px;
+}
+.container .update {
+	display: none;
+}
