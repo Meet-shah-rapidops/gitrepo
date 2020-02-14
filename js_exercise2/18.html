@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-18</title>
+</head>
+<body>
+    <button onclick="details()" id="data">Data</button>
+    <button onclick="ageSort()" id="age">Age</button>
+    <button onclick="nameSort()" id="name">Name</button>
+    <p id="res"></p>
+    <script> 
+    let age = document.getElementById('age');
+    let name = document.getElementById('name');
+    let data = document.getElementById('data');
+
+    age.style.display = 'none';
+    name.style.display = 'none';
+
+    let person = [
+        {
+            id: 1,
+            name: "meet",
+            age: 20
+        },
+        {
+            id: 2,
+            name: "mayur",
+            age: 30
+        },
+        {
+            id: 3,
+            name: "nawal",
+            age: 40
+        },
+        {
+            id: 4,
+            name: "aman",
+            age: 50
+        },
+        {
+            id: 5,
+            name: "hardik",
+            age: 60
+        },
+        {
+            id: 6,
+            name: "brijesh",
+            age: 70
+        },
+        {
+            id: 7,
+            name: "vatsal",
+            age: 80
+        },
+        {
+            id: 8,
+            name: "rishabh",
+            age: 90
+        },
+        {
+            id: 9,
+            name: "rahul",
+            age: 55
+        },
+        {
+            id: 10,
+            name: "dhairya",
+            age: 35
+        }
+        ];
+       function details(){
+        let html = "<table border='1|1' >";
+        for (let i = 0; i < person.length; i++) {
+            html+="<tr>";
+            html+="<td>"+person[i].id+"</td>";
+            html+="<td>"+person[i].name+"</td>";
+            html+="<td>"+person[i].age+"</td>";
+
+            html+="</tr>";
+
+        }
+        html+="</table>";
+        document.getElementById("res").innerHTML = html;
+
+        age.style.display = 'initial';
+        name.style.display = 'initial';
+        data.style.display = 'none';
+       }
+       
+
+       function ageSort(){
+        person.sort(function(a, b){
+                return a.age - b.age
+         })
+
+         html = "<table border='1|1'>";
+        for (let i = 0; i < person.length; i++) {
+            html+="<tr>";
+            html+="<td>"+person[i].id+"</td>";
+            html+="<td>"+person[i].name+"</td>";
+            html+="<td>"+person[i].age+"</td>";
+
+            html+="</tr>";
+
+        }
+        html+="</table>";
+        document.getElementById("res").innerHTML = html;
+            
+       }
+
+       function nameSort(){
+        person.sort(function(a, b){
+           return a.name < b.name ? 1 : a.name > b.name ? -1 : 0;
+        })
+        html = "<table border='1|1'>";
+        for (let i = 0; i < person.length; i++) {
+            html+="<tr>";
+            html+="<td>"+person[i].id+"</td>";
+            html+="<td>"+person[i].name+"</td>";
+            html+="<td>"+person[i].age+"</td>";
+
+            html+="</tr>";
+
+        }
+        html+="</table>";
+        document.getElementById("res").innerHTML = html;
+            
+       }
+       
+    </script>
+</body>
+</html>

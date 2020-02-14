@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-1</title>
+</head>
+<body>
+    <p id="arr"></p>
+    
+    <script>
+        let lelement;
+
+        let n = prompt("enter number");
+        function arr(n){
+            let arr1 = [1,2,3,4,5];
+            felement = arr1.slice(0,n);      
+            lelement = arr1.slice(arr1.length-n,arr1.length);      
+            document.getElementById("arr").innerHTML = "From first element of array: " + felement + "<br>" + "From last elements of array: " + lelement;
+        }
+
+        arr(n);
+
+        
+    </script>
+</body>
+</html>

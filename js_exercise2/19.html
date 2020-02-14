@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-19</title>
+</head>
+<body>
+    <button onclick="addUser()" id="addUser">Add User</button>
+    <button onclick="deleteUser()" id="deleteUser">Delete User</button>
+    <input type="text" placeholder="enter your name" id="name"/>
+    <input type="number" placeholder="enter position" id="pos"/>
+    <button onclick="addUserBtn()" id="addBtn">Add</button>
+    <button onclick="delBtn()" id="deleteBtn">Delete</button>
+    <button onclick="backBtn()" id="backBtn">Back</button>
+    <p id="res"></p>
+
+
+    <script>
+        let addUsr = document.getElementById('addUser');
+        let addBtn = document.getElementById('addBtn');
+        let deleteUsr = document.getElementById('deleteUser');
+        let deleteBtn = document.getElementById('deleteBtn');
+        let backFromPage = document.getElementById('backBtn');
+        let name = document.getElementById('name');
+        let position = document.getElementById('pos');
+        let result = document.getElementById('res');
+
+	    name.style.display = 'none';
+	    position.style.display = 'none';
+	    addBtn.style.display = 'none';
+	    deleteBtn.style.display = 'none';
+	    backFromPage.style.display = 'none';
+
+        
+        let person = [
+            {
+                id: 1,
+                name: "meet"
+            },
+            {
+                id: 2,
+                name: "mayur"
+            },
+            {
+                id: 3,
+                name: "nawal"
+            },
+        ];
+
+
+        let userDetails = () => {
+            let html = "<table border='1|1' >";
+            for (let i = 0; i < person.length; i++) {
+                html+="<tr>";
+                html+="<td>"+i+"</td>";
+                html+="<td>"+person[i].name+"</td>";
+
+                html+="</tr>";
+
+            }
+            html+="</table>";
+            document.getElementById("res").innerHTML = html;
+        }
+
+        userDetails();
+
+        addUser = () => {
+
+            addBtn.style.display = 'initial';
+            name.style.display = 'initial';
+            position.style.display = 'initial';
+            backFromPage.style.display = 'initial';
+            deleteUsr.style.display = 'none';
+            addUsr.style.display = 'none';
+
+            userDetails();
+        }
+
+        addUserBtn = () => {
+            if(position.value == '' || position.value == null){
+                person.push({
+                    name: name.value
+                });
+            }
+            else{
+                let newObj = { 
+                    name: name.value
+                };
+
+                person.splice(+position.value, 0, newObj);
+
+            }
+            
+            userDetails();
+
+        }
+
+
+        deleteUser = () => {
+            deleteBtn.style.display = 'initial';
+            position.style.display = 'initial';
+            backFromPage.style.display = 'initial';
+            addUsr.style.display = 'none';
+            deleteUsr.style.display = 'none';
+            userDetails();
+        }
+
+        delBtn = () => {
+
+            person.splice(position.value, 1);
+            userDetails();
+            alert("deleted")
+
+        }
+
+        backBtn = () => {
+            addUsr.style.display = 'initial';
+            deleteUsr.style.display = 'initial';
+            name.style.display = 'none';
+            position.style.display = 'none';
+            addBtn.style.display = 'none';
+            deleteBtn.style.display = 'none';
+            backFromPage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

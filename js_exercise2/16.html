@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-16</title>
+</head>
+<body>
+    <input type="text" id="num" placeholder="enter your value"/>
+    <button onclick="seperator()">Seperator</button>
+    <p id="res"></p>
+
+    <script>
+        let num = document.getElementById('num');
+      
+         function seperator(){
+           num = num.value;
+           var num_parts = num.toString().split(".");
+            num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+           document.getElementById('res').innerHTML = num_parts.join(".");
+         }
+    </script>
+</body>
+</html>

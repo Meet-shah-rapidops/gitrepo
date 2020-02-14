@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-6</title>
+</head>
+<body>
+    
+    Start: <input type="text" id="start">
+    End: <input type="text" id="end">
+    Skip: <input type="number" id="skip">
+    <button onclick="allow()">Find</button>
+
+    <p id="output"></p>
+    <script>
+    
+    let firstChar = document.getElementById('start');
+    let secondChar = document.getElementById('end');
+    let diff = document.getElementById('skip');
+    // let btn = document.getElementById('btn');
+    let arr = [];
+    let output = document.getElementById('output');
+
+    function num_string_range(first, last, diff = 1) {
+        let start = Number(first.charCodeAt());
+        let end = Number(last.charCodeAt());
+        console.log(start, end);
+        if (start < end) {
+            for (let i = start; i <= end; i) {
+                arr.push(String.fromCharCode(i));
+                i += diff;
+            }
+        } else {
+            for (let i = start; i >= end; i) {
+                arr.push(String.fromCharCode(i));
+                i -= diff;
+            }
+        }
+        console.log(arr);
+        output.innerHTML = arr;
+    }
+
+    function simpleCount(first, last, diff) {
+        if (+first < +last) {
+            for (let i = +first; i <= last; i) {
+                arr.push(i);
+                i += diff;
+            }
+        } else {
+            for (let i = +first; i >= last; i) {
+                arr.push(i);
+                i -= diff;
+            }
+        }
+        console.log(arr);
+        output.innerHTML = arr;
+    }
+
+    allow = () => {
+        num_string_range(firstChar.value, secondChar.value, +diff.value);
+        simpleCount(firstChar.value, secondChar.value, +diff.value);
+    };
+
+       
+    </script>
+</body>
+</html> 

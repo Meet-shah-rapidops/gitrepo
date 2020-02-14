@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-7</title>
+</head>
+<body>
+    <h3>enter date in dd/mm/yyy format</h3>
+    <input type="txt" id="date" />
+    <button onclick="get()">Get</button>
+    <p id="res"></p>
+    <script>
+        let month = {
+            01 : "Jan",
+            02 : "Feb",
+            03 : "Mar",
+            04 : "April",
+            05 : "May",
+            06 : "Jun",
+            07 : "Jul",
+            08 :"Aug",
+            09 : "Sep",
+            10 : "Oct",
+            11 : "Nov",
+            12 : "Dec"
+        }
+        // let dateNum = +date;
+        let dateNums;
+        // let dateNums = '12/02/1998';
+        function get(){
+            let date = document.getElementById('date').value;
+            let res = date.slice(3, 5);
+            
+            document.getElementById('res').innerHTML = month[+res];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-15</title>
+</head>
+<body>
+    <input type="text" id="email" placeholder="enter your email"/>
+    <button onclick="auth()">Auth</button>
+    <p id="res"></p>
+
+    <script>
+        let email;
+        let pattern;
+         function auth(){
+            email =document.getElementById('email').value;
+            pattern =  /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+
+            if(pattern.test(email)){
+                result = 'Pattern matched';
+
+            }
+            else{
+                result = "Pattern not matched";
+
+            }
+
+            document.getElementById('res').innerHTML = result;
+         }
+    </script>
+</body>
+</html>

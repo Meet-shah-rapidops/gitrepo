@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-20</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 540px;
+            height: 140px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="userList()" id="listOfUser">List of Hobbies with Users</button>
+    <p id="res"></p>
+    <p id="displayList"></p>
+    
+    <script>
+        let result = document.getElementById('res');
+
+        let persons = [
+            {
+                id: 1,
+                name: 'abc',
+                age: 25,
+                hobbies: ['reading']
+            },
+            {
+                id: 2,
+                name: 'def',
+                age: 25,
+                hobbies: ['reading', 'travelling', 'music']
+            },
+            {
+                id: 3,
+                name: 'ghi',
+                age: 25,
+                hobbies: ['travelling', 'music']
+            },
+            {
+                id: 4,
+                name: 'jkl',
+                age: 25,
+                hobbies: ['reading', 'travelling']
+            },
+            {
+                id: 5,
+                name: 'mno',
+                age: 25,
+                hobbies: ['reading']
+            }
+        ];
+
+
+        let userDetails = () => {
+            let html = "<table border>";
+            for (let i = 0; i < persons.length; i++) {
+                html+="<tr>";
+                html+="<td>"+i+"</td>";
+                html+="<td>"+persons[i].name + "</td>";
+                html+="<td>"+persons[i].age + "</td>";
+                html+="<td>"+persons[i].hobbies + "</td>";
+                html+="</tr>";
+            }
+            html+="</table>";
+            document.getElementById("res").innerHTML = html;
+        }
+
+        userDetails();
+
+        let hobbyGroup = [];
+        let filterHobby;
+        let names = [];
+        userList = () => {
+
+            for(let person of persons){
+                for( let hobby of person.hobbies){
+                    if(!hobbyGroup.includes(hobby)){
+                        hobbyGroup.push(hobby);
+                    }
+                }
+            }
+            console.log(hobbyGroup);
+
+            for (const hobby of hobbyGroup){
+                for (const person of persons) {
+                    if (person.hobbies.includes(hobby)){
+                        names.push(person.name);
+                    }
+                }
+                document.writeln(hobby +' : '+ names + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

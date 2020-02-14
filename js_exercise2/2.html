@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-2</title>
+</head>
+<body>
+    <p> Entered Number: <span id="n"></span></p>
+    <p>Result: <span id="result"></span></p>
+    <script>
+        let res;
+        count = 0;
+        let numString = ''
+       let num = prompt("enter input");
+       if(isNaN(num)){
+          alert("its not a number and please refresh this page")
+       }
+       else{
+           document.getElementById('n').innerHTML = num;
+           
+           for(let i of num){
+               if(i % 2 === 0){
+                 count++;
+                 if(count >= 2){
+                    numString = numString + '-' + i;
+                 }
+                 else(
+                     numString += i
+                 )
+                 
+               }
+               else{
+                   count = 0;
+                   numString += i;
+               }
+
+           }
+
+           console.log(numString)
+           document.getElementById('result').innerHTML = numString;
+       }
+    </script>
+</body>
+</html>

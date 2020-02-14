@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-3</title>
+</head>
+<body>
+    <div id="showInput"></div>
+    <div id="showOutput"></div>
+    <script>
+        let arr = [ 1, 2, 3, 3, 2, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1 ];
+
+        const inputShow = document.getElementById('showInput');
+        const outputShow = document.getElementById('showOutput');
+
+        inputShow.innerHTML = `Input : ${arr} `;
+
+        const result = (obj) => {
+            let value = Object.values(obj);
+            let key = Object.keys(obj);
+            resultArr = [];
+            value.forEach((v, index) => {
+                if (v === Math.max(...Object.values(obj))) {
+                    console.log(key[index]);
+                    resultArr.push(key[index]);
+                }
+            });
+
+            outputShow.innerHTML += `Result : ${resultArr}`;
+        };
+
+        const createObj = () => {
+            let obj = {};
+            let count = 1;
+            arr = arr.sort();
+            for (let i = 0; i < arr.length; i++) {
+                obj[arr[i]] = 0;
+                if (arr[i] === arr[i + 1]) {
+                    count += 1;
+                    obj[arr[i]] = obj[arr[i]] + count;
+                } else {
+                    obj[arr[i]] = obj[arr[i]] + count;
+                    count = 1;
+                }
+            }
+            console.log(obj);
+            result(obj);
+        };
+
+        createObj();
+            
+    </script>
+</body>
+</html>

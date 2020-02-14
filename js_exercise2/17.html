@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-17</title>
+</head>
+<body>
+    <input type="text" id="rows" placeholder="enter your rows"/>
+    <input type="text" id="cols" placeholder="enter your cols"/>
+    <button onclick="insert()">Create Table</button>
+
+    <script>
+       function insert() {
+        let rows = document.getElementById('rows').value;
+        let cols = document.getElementById('cols').value;
+        let body = document.getElementsByTagName("body")[0];
+        let tbl = document.createElement("table");
+        let tblBody = document.createElement("tbody");
+        for (let i = 0; i < rows; i++) {
+            let row = document.createElement("tr");
+            for (let j = 0; j < cols; j++) {
+            let cell = document.createElement("td");
+            let cellText = document.createTextNode("row "+i+", column "+j);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            }
+            tblBody.appendChild(row);
+        }
+        tbl.appendChild(tblBody);
+        body.appendChild(tbl);
+        tbl.setAttribute("border", "1");
+    }
+    </script>
+</body>
+</html>

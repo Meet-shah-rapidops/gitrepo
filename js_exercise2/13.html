@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-13</title>
+</head>
+<body>
+    <input type="text" placeholder="enter any string" id="str"/>
+    <input type="text" placeholder="enter split number" id="num"/>
+    <button onclick="chunk()">String into CHunk</button>
+    <p id="res"></p>
+    <script>
+        let str = document.getElementById('str');
+        let num = document.getElementById('num');
+        let fstr = '';
+        let str1 = '';
+        let num1 = '';
+        let first = '';
+        let finalres = [];
+        function chunk(){
+            str1 = str.value;
+            num1 = +num.value;
+            for(let i = 0; i<str1.length; i+=num1){
+                for(let j = i; j<num1+i; j++){
+                    first = first+str1.charAt(j);
+                } 
+                console.log(first)
+                finalres.push(first);
+                first = '';
+            
+            }
+            document.getElementById('res').innerHTML = finalres;
+        }
+    </script>
+</body>
+</html>

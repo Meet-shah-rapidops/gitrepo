@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-8</title>
+</head>
+<body>
+    <input type="date" id="first">
+    <input type="date" id="second">
+    <button onclick="diff()">difference</button>
+    <p id="demo"></p>
+
+    <script>
+        let d1 ='';
+        let d2 ='';
+        let first = document.getElementById('first');
+        let second = document.getElementById('second');
+        function diff(){
+            d1 = new Date(first.value);
+            d2 = new Date(second.value);
+            let difference_time = d2.getTime() - d1.getTime(); 
+            var difference_days = difference_time / (1000 * 3600 * 24);
+            document.getElementById("demo").innerHTML = difference_days + ' ' + 'day';
+        }
+    </script>
+</body>
+</html>

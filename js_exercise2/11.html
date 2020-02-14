@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-11</title>
+</head>
+<body>
+    <h3>Write an email address</h3>
+    <input type="email" id="email"/>
+    <button onclick="auth()">auth</button>
+    <p id="res"></p>
+    <script>
+        let email = document.getElementById('email');
+        let res = document.getElementById('res');
+        let asterisk = '*';
+        let arr = '';
+        let avg = '';
+
+        function auth(){
+            email = email.value;
+            arr = email.split('@');
+            avg = arr[0].length/2;
+            email = (arr[0].slice(0, arr[0].length-avg)) + '***' + arr[0].slice(-2) + '@' + arr[1];
+            res.innerHTML = email;
+        }
+    </script>
+</body>
+</html>

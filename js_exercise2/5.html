@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise-5</title>
+</head>
+<body>
+    <p>Union of array: <span id="result"></span></p>
+    <p>Difference of array from A to B: <span id="diff1"></span></p>
+    <p>Difference of array from B to A: <span id="diff2"></span></p>
+    <script>
+        let arr1 = ['a','b','c','d'];
+        let arr2 = ['a','b','c','e','f','g','h'];
+        let arr3 = arr1.concat(arr2);
+        let set= [...new Set(arr3)]
+
+        let diff1 = arr1.filter(x => !arr2.includes(x) );
+        let diff2 = arr2.filter(x => !arr1.includes(x) );
+
+        document.getElementById('result').innerHTML = set;
+        document.getElementById('diff1').innerHTML = diff1;
+        document.getElementById('diff2').innerHTML = diff2;
+    </script>
+</body>
+</html>
