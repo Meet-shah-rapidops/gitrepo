@@ -1,0 +1,10 @@
+.container{
+       margin-top: 8%;
+}
+.alreadyMemberLink{
+    line-height: 2.5;
+}
+.form-group .fa-eye{
+    line-height: 2.5;
+    margin-left: 6px;
+}

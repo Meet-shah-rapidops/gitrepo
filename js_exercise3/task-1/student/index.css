@@ -1,0 +1,29 @@
+.usr h6 {
+    margin-right: 20px;
+}
+
+.card {
+    margin-top: 2%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.card img {
+    height: 150px;
+}
+
+.card-header {
+    color: white;
+}
+
+.fa-html5 {
+    color: orange;
+}
+
+.fa-css3-alt {
+    color: blue;
+}
+
+.fa-js-square {
+    color: yellow;
+}
