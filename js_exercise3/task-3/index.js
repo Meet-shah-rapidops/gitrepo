@@ -50,7 +50,7 @@ let prev = () => {
         console.log(colorBox)
         document.getElementById('box4').style.background = colorBox[i];
         i--;
-    }, 2000)
+    }, 000)
 }
 
 
