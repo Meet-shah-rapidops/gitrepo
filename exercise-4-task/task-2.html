@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Task-2</title>
+  </head>
+
+  <body>
+    <button onclick="userList()" id="listOfUser">List</button>
+    <p id="displayList"></p>
+    <p id="res"></p>
+
+    <script>
+      let list = document.getElementById("displayList");
+      let result = document.getElementById("res");
+      let datas = [
+        {
+          Name: "meet",
+          Sports: ["cricket", "football"]
+        },
+        {
+          Name: "Nawal",
+          Sports: ["cricket", "hockey"]
+        },
+        {
+          Name: "Aman",
+          Sports: ["cricket", "football"]
+        },
+        {
+          Name: "Mayur",
+          Sports: ["cricket"]
+        }
+      ];
+
+      userList = () => {
+        list.innerHTML = "";
+        result.innerHTML = "";
+
+        let sportsGroup = {};
+        let names = [];
+
+        for (let data of datas) {
+          list.innerHTML += `${data.Name}: ${data.Sports}<br>`;
+        }
+
+        for (let data of datas) {
+          for (let sport of data.Sports) {
+            console.log(sportsGroup[sport]);
+            if (sportsGroup[sport]) {
+              console.log("if");
+
+              sportsGroup[sport].push(data.Name);
+            } else {
+              console.log("else");
+
+              sportsGroup[sport] = [data.Name];
+            }
+          }
+        }
+
+        for (const sport in sportsGroup) {
+          names.push({
+            [sport]: sportsGroup[sport]
+          });
+        }
+        console.log(names);
+        for (let name of names) {
+          result.innerHTML += `${JSON.stringify(name)}`;
+        }
+      };
+    </script>
+  </body>
+</html>
