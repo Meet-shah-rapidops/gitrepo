@@ -6,3 +6,5 @@ const personalDataSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Data', personalDataSchema);
+
+//this page is for schema of our table

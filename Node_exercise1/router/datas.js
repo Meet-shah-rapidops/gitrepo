@@ -5,8 +5,8 @@ const Data = mongoose.model('Data');
 
 router.get('/', async (req, res) => {
     try {
-        const datas = await Data.find({})
-        res.send(datas);
+        const datas = await Data.find({}) //this will get the data from table
+        res.send(datas);          //this will send data to the html page
     }
     catch (error) {
         res.status(500);
@@ -16,24 +16,16 @@ router.get('/', async (req, res) => {
 router.post('/addData', async (req, res) => {
    
         const data = new Data({
-            firstName: req.body.fname,
+            firstName: req.body.fname,    //this will assign the i/p data to the database fields
             lastName: req.body.lname
         });
-        await data.save(data);
-        res.send(data);
+        await data.save(data);   //this will save the data
+        res.send(data);          //this will send data to the html page
 });
 
 
 
-router.get('/:dataId', async (req, res) => {
-    try {
-        const data = await Data.findOne({ _id: req.params.dataId })
-        res.send(data)
-    }
-    catch (error) {
-        res.status(500);
-    }
-})
+
 
 router.put('/updateData', async (req, res) => {
     const { _id, fname, lname } = req.body;
@@ -45,6 +37,8 @@ router.put('/updateData', async (req, res) => {
         }
     });
 });
+
+//in this api it will fetch the field by id then it will set the i/p data to the fetched field so it will update the data..
 
 
 router.delete('/deleteData', async (req, res) => {
@@ -63,4 +57,6 @@ router.delete('/deleteData', async (req, res) => {
     }
 })
 
+
+//in this it will delete the one field at a time by id.. 
 module.exports = router;

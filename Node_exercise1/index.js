@@ -15,13 +15,13 @@ app.use(morgan());
 
 
 //Routes
-app.use('/data',require('./router/datas'));
+app.use('/data',require('./router/datas')); //its for all api routes
 
 
     app.get('/',(req,res)=>{
-        res.sendFile('index.html',{root: __dirname})
+        res.sendFile('index.html',{root: __dirname}) //form this html file will show on home page
     });
 
 //PORT
 const port = process.env.PORT || 3001;
-app.listen(port,()=>console.log(`listening on port ${port}....`));
+app.listen(port,()=>console.log(`listening on port ${port}....`));// its for port for where this project will run

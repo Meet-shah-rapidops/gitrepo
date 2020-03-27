@@ -11,7 +11,7 @@ let commits;
  
 async function show() {
 		let response = await fetch('http://localhost:3001/data');
-		commits = await response.json(); // read response body and parse as JSON
+		commits = await response.json(); // it will read the response and convert into json format
 		try{
 			console.log('successfully data retrieve')
 		}
@@ -38,14 +38,14 @@ async function add() {
 			};
 
 			console.log(data);
-			await fetch("http://localhost:3001/data/addData", {
+			await fetch("http://localhost:3001/data/addData", { //this will fetch the data from api
 				method: "POST",
 				headers: {
-					'Content-type': 'application/json'
+					'Content-type': 'application/json'  // it means that file is json data
 				},
-				body: JSON.stringify(data)
+				body: JSON.stringify(data)// it converts into string data
 			});
-			show();
+			show();           
 
 		} catch (error) {
 			console.log('error',error);
@@ -56,9 +56,9 @@ async function edit(i) {
 	try{
 		addbtn.style.display = 'none';
 		updatebtn.style.display = 'initial';
-		docId.value = commits[i]._id;
-		firstName.value = commits[i].firstName;
-		lastName.value = commits[i].lastName;
+		docId.value = commits[i]._id; 
+		firstName.value = commits[i].firstName; //it will simply copy the db field data into i/p box    
+		lastName.value = commits[i].lastName;//it will simply copy the db field data into i/p box
 	}
 	catch (error) {
         console.log('error',error);
@@ -68,7 +68,7 @@ async function edit(i) {
 async function update(i) {
 	try {
 		const data = {
-			_id: docId.value,
+			_id: docId.value,                 
 			fname: firstName.value,
 			lname: lastName.value
 		};
@@ -93,7 +93,7 @@ async function update(i) {
 async function del(i) {
 	try {
 		const data = {
-			_id: commits[i]._id
+			_id: commits[i]._id          //from this it will get the id
 		};
 
 		await fetch("http://localhost:3001/data/deleteData", {
